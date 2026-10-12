@@ -9,9 +9,14 @@ public class EnemyHitReaction : MonoBehaviour
     [SerializeField] private Health health;
     [SerializeField] private Animator animator;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Behaviour brain;      // EnemyBrain или BossController
+    [SerializeField] private Behaviour brain;  // EnemyBrain или BossController
     [SerializeField] private float knockback = 2.5f;
     [SerializeField] private GameObject[] dropOnDeath;
+
+    [Header("Отклик")]
+    [SerializeField] private HitFlash flash;
+    [SerializeField] private SoundData hitSound, deathSound;
+    [SerializeField] private GameObject deathVfx;
 
     void OnEnable()
     {
@@ -28,6 +33,8 @@ public class EnemyHitReaction : MonoBehaviour
     private void OnDamaged(float amount, Vector3 point)
     {
         animator.SetTrigger(HitId);
+        flash.Flash();
+        SoundPlayer.Instance.Play(hitSound, point);
         Vector3 away = transform.position - point;
         away.y = 0f;
         agent.Move(away.normalized * knockback * 0.1f); // небольшой отброс
@@ -36,6 +43,10 @@ public class EnemyHitReaction : MonoBehaviour
     private void OnDied()
     {
         animator.SetBool(DeadId, true);
+        SoundPlayer.Instance.Play(deathSound, transform.position);
+        if (deathVfx != null)
+            Destroy(Instantiate(deathVfx, transform.position,
+                                Quaternion.identity), 3f);
         brain.enabled = false;
         agent.enabled = false;
         foreach (var c in GetComponentsInChildren<Collider>())

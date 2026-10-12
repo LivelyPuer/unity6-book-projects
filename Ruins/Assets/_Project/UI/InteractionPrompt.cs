@@ -15,6 +15,9 @@ public class InteractionPrompt : MonoBehaviour
     {
         group.alpha = target == null ? 0f : 1f;
         if (target != null)
-            label.text = $"<b>[E]</b>  {target.GetPrompt(interactor.gameObject)}";
+        {
+            string prompt = target.GetPrompt(interactor.gameObject);
+            label.text = $"<b>[E]</b>  {prompt}";
+        }
     }
 }

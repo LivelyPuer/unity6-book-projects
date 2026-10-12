@@ -6,8 +6,8 @@ public class BossAttack
 {
     public string trigger;          // триггер Animator
     public float minRange, maxRange;
-    public float windup = 0.6f;     // подготовка (информация для дизайна)
-    public float recovery = 1f;     // окно уязвимости
+    public float windup = 0.6f;     // от начала клипа до конца удара, с
+    public float recovery = 1f;     // окно уязвимости после удара, с
     public int phase = 1;           // доступна с этой фазы
 }
 
@@ -21,23 +21,36 @@ public class BossController : MonoBehaviour
     [SerializeField] private float phase2Threshold = 0.5f;
     [SerializeField] private float phase2SpeedUp = 1.25f;
 
-    public int Phase { get; private set; } = 1;
-    public event System.Action<int> PhaseChanged;
+    [Header("Уязвимость")]
+    [SerializeField] private float vulnerableDamage = 1.5f;  // в окне
+    [SerializeField] private float armoredDamage = 0.4f;     // вне окна
 
-    private float busyTimer;
+    public int Phase { get; private set; } = 1;
+    public bool IsVulnerable { get; private set; }
+    public event System.Action<int> PhaseChanged;
+    public event System.Action<bool> VulnerabilityChanged;
+
+    private float busyTimer, vulnerableUntil;
     private BossAttack last;
 
     void Start()
     {
         if (!agent.isOnNavMesh) agent.Warp(transform.position);
+        health.DamageScale = armoredDamage;
     }
 
     void OnEnable() => health.Changed += OnHealthChanged;
-    void OnDisable() => health.Changed -= OnHealthChanged;
+
+    void OnDisable()
+    {
+        health.Changed -= OnHealthChanged;
+        SetVulnerable(false);
+    }
 
     void Update()
     {
         if (!health.IsAlive) return;
+        if (IsVulnerable && Time.time > vulnerableUntil) SetVulnerable(false);
         busyTimer -= Time.deltaTime;
         if (busyTimer > 0f) return;
 
@@ -57,6 +70,24 @@ public class BossController : MonoBehaviour
         last = attack;
     }
 
+    // Событие анимации в конце активных кадров удара: страж
+    // «провалился» и открылся — начинается окно уязвимости
+    public void AttackEnd()
+    {
+        if (last == null || !health.IsAlive) return;
+        float speed = Phase == 2 ? phase2SpeedUp : 1f;
+        vulnerableUntil = Time.time + last.recovery / speed;
+        SetVulnerable(true);
+    }
+
+    private void SetVulnerable(bool value)
+    {
+        if (IsVulnerable == value) return;
+        IsVulnerable = value;
+        health.DamageScale = value ? vulnerableDamage : armoredDamage;
+        VulnerabilityChanged?.Invoke(value);
+    }
+
     private BossAttack PickAttack(float distance)
     {
         var options = new List<BossAttack>();
@@ -73,6 +104,7 @@ public class BossController : MonoBehaviour
         if (Phase == 1 && current / max <= phase2Threshold)
         {
             Phase = 2;
+            SetVulnerable(false);
             animator.SetTrigger("Roar");
             animator.speed = phase2SpeedUp;   // всё быстрее
             busyTimer = 2f;                    // пауза на смену фазы
@@ -88,6 +120,7 @@ public class BossController : MonoBehaviour
     public void ResetFight()
     {
         CancelInvoke();
+        SetVulnerable(false);
         Phase = 1;
         animator.speed = 1f;
         busyTimer = 0f;

@@ -19,6 +19,12 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float[] comboDamage = { 10f, 12f, 22f };
     [SerializeField] private float bufferTime = 0.3f;
 
+    [Header("Отклик")]
+    [SerializeField] private float lunge = 6f;         // рывок вперёд, м/с
+    [SerializeField] private float aimRadius = 3.5f;   // доводка на цель
+    [SerializeField] private TrailRenderer trail;      // шлейф клинка
+    [SerializeField] private SoundData swingSound;
+
     private readonly Collider[] hits = new Collider[16];
     private readonly HashSet<IDamageable> hitThisSwing = new();
     private int comboIndex;
@@ -26,6 +32,7 @@ public class PlayerCombat : MonoBehaviour
     private float bufferTimer;
 
     public event System.Action<IDamageable, Vector3> HitLanded;
+    public bool IsFinisher => comboIndex == comboDamage.Length - 1;
 
     void OnEnable() => input.AttackPressed += BufferAttack;
     void OnDisable() => input.AttackPressed -= BufferAttack;
@@ -54,8 +61,27 @@ public class PlayerCombat : MonoBehaviour
         attacking = true;
         comboWindow = false;
         motor.CanMove = false;
+        AimAtNearest();
+        motor.Nudge(transform.forward * lunge);
         animator.SetInteger(ComboId, index);
         animator.SetTrigger(AttackId);
+    }
+
+    // Развернуться к ближайшему врагу рядом: удар не уходит «в молоко»
+    private void AimAtNearest()
+    {
+        int count = Physics.OverlapSphereNonAlloc(transform.position,
+            aimRadius, hits, hittable, QueryTriggerInteraction.Collide);
+        float best = float.MaxValue;
+        Vector3 dir = Vector3.zero;
+        for (int i = 0; i < count; i++)
+        {
+            Vector3 to = hits[i].transform.position - transform.position;
+            to.y = 0f;
+            if (to.sqrMagnitude < best) { best = to.sqrMagnitude; dir = to; }
+        }
+        if (dir.sqrMagnitude > 0.01f)
+            transform.rotation = Quaternion.LookRotation(dir);
     }
 
     private void ApplyHits()
@@ -77,9 +103,16 @@ public class PlayerCombat : MonoBehaviour
     {
         hitThisSwing.Clear();
         hitboxActive = true;
+        trail.emitting = true;
+        SoundPlayer.Instance.Play(swingSound, hitPoint.position);
     }
 
-    public void AttackEnd() => hitboxActive = false;
+    public void AttackEnd()
+    {
+        hitboxActive = false;
+        trail.emitting = false;
+    }
+
     public void ComboWindow() => comboWindow = true;
 
     public void AttackFinished(int index)
@@ -96,6 +129,7 @@ public class PlayerCombat : MonoBehaviour
         attacking = comboWindow = hitboxActive = false;
         comboIndex = 0;
         bufferTimer = 0f;
+        trail.emitting = false;
     }
 
     void OnDrawGizmosSelected()

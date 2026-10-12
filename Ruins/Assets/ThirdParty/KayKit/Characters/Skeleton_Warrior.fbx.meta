@@ -3,7 +3,12 @@ guid: 6349ea302288544d28f26574804d80f9
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skeleton
+    second: {fileID: 2100000, guid: ea7b96fa1103e484ca6a6f45b7c6b217, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,14 +90,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.46
+      - time: 0.48
         functionName: AttackStart
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6
+      - time: 0.59
         functionName: AttackEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -128,7 +133,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.46
+      - time: 0.5
         functionName: AttackStart
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -374,14 +379,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.36
+      - time: 0.41
         functionName: AttackStart
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.56
+      - time: 0.55
         functionName: AttackEnd
         data: 
         objectReferenceParameter: {instanceID: 0}

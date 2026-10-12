@@ -10,6 +10,7 @@ public class Health : MonoBehaviour, IDamageable
     public float Max => max;
     public bool IsAlive => Current > 0f;
     public bool Invulnerable { get; set; }
+    public float DamageScale { get; set; } = 1f;   // броня, окна уязвимости
 
     public event Action<float, float> Changed;
     public event Action<float, Vector3> Damaged;   // урон, точка удара
@@ -23,6 +24,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         if (!IsAlive || Invulnerable || Time.time < invulnerableUntil) return;
 
+        amount *= DamageScale;
         Current = Mathf.Max(0f, Current - amount);
         invulnerableUntil = Time.time + hitInvulnerability;
         Damaged?.Invoke(amount, hitPoint);

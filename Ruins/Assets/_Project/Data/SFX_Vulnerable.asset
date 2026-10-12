@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9cb91df38824e1c9e5817ad03795d0, type: 3}
+  m_Name: SFX_Vulnerable
+  m_EditorClassIdentifier: Ruins.Gameplay::SoundData
+  clips:
+  - {fileID: 8300000, guid: eb0df8a3094144b3e9274e34b04f4220, type: 3}
+  volume: 0.55
+  pitchRange: {x: 0.92, y: 1.08}
+  spatialBlend: 0.2
+  output: {fileID: 0}
+  cooldown: 0.03

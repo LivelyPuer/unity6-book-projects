@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: SFX_Swing
   m_EditorClassIdentifier: Ruins.Gameplay::SoundData
   clips:
-  - {fileID: 8300000, guid: cae475264aedc4c1ab14d0ae99b3285a, type: 3}
-  volume: 0.6
-  pitchRange: {x: 0.95, y: 1.05}
-  spatialBlend: 0.6
+  - {fileID: 8300000, guid: e375d77440e12467090d0fd63abaf8b9, type: 3}
+  - {fileID: 8300000, guid: 990d7b24941da46b6945384b2fd16a51, type: 3}
+  - {fileID: 8300000, guid: 1ace2357a186b4284862c796b00aa4af, type: 3}
+  volume: 0.55
+  pitchRange: {x: 0.92, y: 1.08}
+  spatialBlend: 0.4
   output: {fileID: 0}
   cooldown: 0.03

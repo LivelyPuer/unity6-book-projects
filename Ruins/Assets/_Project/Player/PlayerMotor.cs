@@ -8,18 +8,18 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private Health health;
     [SerializeField] private Transform cameraTransform;
 
-    [Header("Ходьба")]
-    [SerializeField] private float walkSpeed = 3f;
-    [SerializeField] private float runSpeed = 6f;
-    [SerializeField] private float acceleration = 20f;
-    [SerializeField] private float turnSharpness = 12f;
+    [Header("Бег")]
+    [SerializeField] private float moveSpeed = 5.5f;     // обычный бег
+    [SerializeField] private float sprintSpeed = 8.5f;   // с Shift
+    [SerializeField] private float acceleration = 40f;
+    [SerializeField] private float turnSharpness = 16f;
 
     [Header("Прыжок")]
     [SerializeField] private float jumpHeight = 1.1f;
     [SerializeField] private float gravity = -25f;
 
     [Header("Перекат")]
-    [SerializeField] private float dodgeSpeed = 9f;
+    [SerializeField] private float dodgeSpeed = 11f;
     [SerializeField] private float dodgeDuration = 0.45f;
     [SerializeField] private float invulnerableTime = 0.3f;
     [SerializeField] private float dodgeCooldown = 0.2f;
@@ -78,7 +78,7 @@ public class PlayerMotor : MonoBehaviour
         if (CanMove)
         {
             wish = CameraRelative(input.Move)
-                 * (input.Sprint ? runSpeed : walkSpeed);
+                 * (input.Sprint ? sprintSpeed : moveSpeed);
             if (wish.sqrMagnitude > 0.01f)
                 FaceDirection(wish, dt);
         }
@@ -95,7 +95,7 @@ public class PlayerMotor : MonoBehaviour
         if (dodgeTimer <= 0f)
         {
             health.Invulnerable = false;
-            planarVelocity = dodgeDirection * walkSpeed;
+            planarVelocity = dodgeDirection * moveSpeed;
         }
     }
 
@@ -133,6 +133,9 @@ public class PlayerMotor : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, target,
             1f - Mathf.Exp(-turnSharpness * dt));
     }
+
+    // Толчок, который затухает с ускорением, — рывок при ударе
+    public void Nudge(Vector3 velocity) => planarVelocity = velocity;
 
     public void Teleport(Vector3 position, Quaternion rotation)
     {

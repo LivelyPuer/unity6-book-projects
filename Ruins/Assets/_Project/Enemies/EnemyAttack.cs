@@ -8,6 +8,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float hitRadius = 0.8f;
     [SerializeField] private float damage = 15f;
     [SerializeField] private LayerMask hittable;
+    [SerializeField] private TrailRenderer trail;      // красный шлейф удара
+    [SerializeField] private SoundData swingSound;
 
     private readonly Collider[] hits = new Collider[8];
     private readonly HashSet<IDamageable> hitThisSwing = new();
@@ -18,16 +20,23 @@ public class EnemyAttack : MonoBehaviour
     public void AttackStart()
     {
         hitThisSwing.Clear();
-        active = true;
+        SetActive(true);
         activeUntil = Time.time + 0.6f;   // если удар прервали
+        SoundPlayer.Instance.Play(swingSound, hitPoint.position);
     }
 
-    public void AttackEnd() => active = false;
+    public void AttackEnd() => SetActive(false);
+
+    private void SetActive(bool value)
+    {
+        active = value;
+        trail.emitting = value;
+    }
 
     void Update()
     {
         if (!active) return;
-        if (Time.time > activeUntil) { active = false; return; }
+        if (Time.time > activeUntil) { SetActive(false); return; }
         int n = Physics.OverlapSphereNonAlloc(hitPoint.position, hitRadius,
             hits, hittable, QueryTriggerInteraction.Collide);
         for (int i = 0; i < n; i++)
@@ -39,7 +48,7 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    void OnDisable() => active = false;
+    void OnDisable() => SetActive(false);
 
     void OnDrawGizmosSelected()
     {
