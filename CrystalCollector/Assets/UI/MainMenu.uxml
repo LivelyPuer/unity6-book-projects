@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="MainMenu.uss" />
+    <ui:VisualElement class="root">
+        <ui:Label text="ПОДЗЕМЕЛЬЕ" class="title" />
+        <ui:Button name="play" text="Играть" class="menu-button" />
+        <ui:Button name="settings" text="Настройки" class="menu-button" />
+        <ui:Button name="quit" text="Выход" class="menu-button" />
+    </ui:VisualElement>
+</ui:UXML>

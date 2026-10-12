@@ -1,0 +1,1 @@
+{ "name": "Ruins.Gameplay", "references": ["Ruins.Core", "Unity.InputSystem", "Unity.Cinemachine"], "autoReferenced": true }

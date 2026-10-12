@@ -1,0 +1,50 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+// Хитбокс врага: как у героя, включается событиями анимации удара
+public class EnemyAttack : MonoBehaviour
+{
+    [SerializeField] private Transform hitPoint;
+    [SerializeField] private float hitRadius = 0.8f;
+    [SerializeField] private float damage = 15f;
+    [SerializeField] private LayerMask hittable;
+
+    private readonly Collider[] hits = new Collider[8];
+    private readonly HashSet<IDamageable> hitThisSwing = new();
+    private bool active;
+    private float activeUntil;
+
+    // --- события анимации ---
+    public void AttackStart()
+    {
+        hitThisSwing.Clear();
+        active = true;
+        activeUntil = Time.time + 0.6f;   // если удар прервали
+    }
+
+    public void AttackEnd() => active = false;
+
+    void Update()
+    {
+        if (!active) return;
+        if (Time.time > activeUntil) { active = false; return; }
+        int n = Physics.OverlapSphereNonAlloc(hitPoint.position, hitRadius,
+            hits, hittable, QueryTriggerInteraction.Collide);
+        for (int i = 0; i < n; i++)
+        {
+            if (!hits[i].TryGetComponent(out IDamageable target)) continue;
+            if (!hitThisSwing.Add(target)) continue;
+            Vector3 point = hits[i].ClosestPoint(hitPoint.position);
+            target.TakeDamage(damage, point);
+        }
+    }
+
+    void OnDisable() => active = false;
+
+    void OnDrawGizmosSelected()
+    {
+        if (hitPoint == null) return;
+        Gizmos.color = active ? Color.red : new Color(1, 0, 0, 0.3f);
+        Gizmos.DrawWireSphere(hitPoint.position, hitRadius);
+    }
+}

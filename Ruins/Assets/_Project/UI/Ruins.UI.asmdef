@@ -1,0 +1,1 @@
+{ "name": "Ruins.UI", "references": ["Ruins.Core", "Ruins.Gameplay", "Unity.InputSystem", "Unity.TextMeshPro", "UnityEngine.UI"], "autoReferenced": true }

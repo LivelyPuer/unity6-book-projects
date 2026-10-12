@@ -1,0 +1,27 @@
+.root {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(28, 39, 51);
+}
+.title {
+    font-size: 64px;
+    color: rgb(242, 230, 201);
+    margin-bottom: 40px;
+    -unity-font-style: bold;
+}
+.menu-button {
+    width: 320px;
+    height: 56px;
+    margin: 8px;
+    font-size: 24px;
+    border-radius: 8px;
+    background-color: rgb(58, 71, 86);
+    color: rgb(232, 232, 232);
+    transition-duration: 0.15s;
+}
+.menu-button:hover {
+    background-color: rgb(201, 162, 74);
+    color: rgb(28, 28, 28);
+    scale: 1.05 1.05;
+}
