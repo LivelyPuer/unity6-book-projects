@@ -65,7 +65,7 @@
 Unity -batchmode -quit -projectPath Ruins -executeMethod BuildScript.BuildWeb
 ```
 
-Методы: `BuildWindows`, `BuildMac`, `BuildWeb`; результат — в папке `Builds` проекта.
+Методы: `BuildWindows`, `BuildMac`, `BuildWeb`; результат — в папке `Builds` проекта. Веб-версию собирайте **первой** (или удалите перед ней `Library/ShaderCache`): после сборок для Windows и macOS кэш шейдеров ломает веб-сборку — почему, рассказано в главе 28.
 
 > **Сборки для macOS** не подписаны. При первом запуске щёлкните приложение правой кнопкой мыши и выберите **Открыть**.
 
