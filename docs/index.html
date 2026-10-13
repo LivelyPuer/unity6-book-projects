@@ -52,6 +52,11 @@
   .btn.play { background: var(--accent); color: #fff; border-color: var(--ink); }
   .btn:hover { transform: translate(-1px, -1px); box-shadow: 2px 2px 0 var(--ink); }
   section.book { margin-top: 48px; padding: 22px 24px; border: 2px dashed var(--muted); border-radius: 14px; }
+  section.book::after { content: ""; display: block; clear: both; }
+  section.book .cover { float: left; width: 160px; margin: 4px 22px 8px 0; border: 2px solid var(--ink);
+    border-radius: 6px; box-shadow: 4px 5px 0 color-mix(in srgb, var(--ink) 75%, transparent); }
+  @media (max-width: 560px) { section.book .cover { float: none; display: block; margin: 0 auto 14px; } }
+  a.litres img { display: block; }
   section.book h2 { font-family: "Caveat", cursive; font-size: 40px; margin: 0 0 6px; }
   footer { margin-top: 36px; color: var(--muted); font-size: 14px; }
   a { color: var(--accent); }
@@ -99,9 +104,11 @@
   </div>
 
   <section class="book">
+    <a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img class="cover" src="book-cover.jpg" alt="Обложка книги «Unity 6: от первой игры до публикации»"></a>
     <h2>Книга</h2>
     <p><b>Максим Бойко. «Unity 6: от первой игры до публикации».</b> Полное практическое руководство: интерфейс и C#, физика и графика, анимация — от Mecanim до процедурной, паттерны, ИИ, оптимизация, сборка и публикация.</p>
-    <p><a href="https://www.litres.ru/">Книга на ЛитРес</a> · Книгу можно найти на ЛитРес, печатное издание — скоро.</p>
+    <p><a class="litres" href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="litres-badge.svg" height="36" alt="Читать на ЛитРес"></a></p>
+    <p>Электронная книга — <a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/">на ЛитРес</a>, печатное издание — скоро.</p>
     <p><b>Об авторе.</b> Максим Сергеевич Бойко — основатель издательства игр Devilime, разработчик игр, предприниматель.</p>
   </section>
 

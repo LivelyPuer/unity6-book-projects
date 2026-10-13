@@ -2,6 +2,12 @@
 
 Две игры из книги **Максима Бойко «Unity 6: от первой игры до публикации»**: полный исходный код, сцены, ассеты и готовые сборки. Код в репозитории совпадает с листингами книги — если что-то не получается, сравните свой проект с готовым.
 
+<p align="center">
+  <a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="docs/book-cover.jpg" width="220" alt="Обложка книги «Unity 6: от первой игры до публикации»"></a>
+  <br>
+  <a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="docs/litres-badge.svg" height="36" alt="Читать на ЛитРес"></a>
+</p>
+
 | | Кристальный сборщик | Руины |
 |---|---|---|
 | Жанр | аркада с физикой | экшен-приключение от третьего лица |
@@ -73,9 +79,9 @@ Unity -batchmode -quit -projectPath Ruins -executeMethod BuildScript.BuildWeb
 
 **Максим Бойко. «Unity 6: от первой игры до публикации».** Полное практическое руководство: от интерфейса редактора и C# до физики, графики, анимации (от Mecanim до процедурной), паттернов проектирования, ИИ, оптимизации, сборки и публикации игры. В книге 38 глав, сотни листингов, схемы и разборы известных игр.
 
-📖 [Книга на ЛитРес](https://www.litres.ru/) <!-- TODO: ссылка на страницу книги -->
+<a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="docs/litres-badge.svg" height="36" alt="Читать на ЛитРес"></a>
 
-Книгу можно найти на ЛитРес, печатное издание — скоро.
+Электронная книга — [на ЛитРес](https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/), печатное издание — скоро.
 
 ## Об авторе
 
