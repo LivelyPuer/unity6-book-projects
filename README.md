@@ -8,10 +8,10 @@
   <a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="docs/book-cover.jpg" width="220" alt="Обложка книги «Unity 6: от первой игры до публикации»"></a>
   <br>
   <a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="docs/litres-badge.svg" height="36" alt="Читать на ЛитРес"></a>
-  <a href="https://app.lava.top/maksimboiko"><img src="docs/preorder-badge.svg" height="36" alt="Предзаказ бумажной книги"></a>
+  <a href="https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864"><img src="docs/preorder-badge.svg" height="36" alt="Предзаказ бумажной книги"></a>
 </p>
 
-<p align="center"><b>Собираем на бумажную книгу</b> — цель 1 000 000 ₽. Книга с автографом — 5 000 ₽, поддержать сбор — от 300 ₽: <a href="https://app.lava.top/maksimboiko">app.lava.top/maksimboiko</a></p>
+<p align="center"><b>Собираем на бумажную книгу</b> — цель 1 000 000 ₽. Книга с автографом — 5 000 ₽, поддержать сбор — от 300 ₽: <a href="https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864">app.lava.top/maksimboiko</a></p>
 
 | | Кристальный сборщик | Руины |
 |---|---|---|
@@ -84,11 +84,11 @@ Unity -batchmode -quit -projectPath Ruins -executeMethod BuildScript.BuildWeb
 
 **Максим Бойко. «Unity 6: от первой игры до публикации».** Полное практическое руководство: от интерфейса редактора и C# до физики, графики, анимации (от Mecanim до процедурной), паттернов проектирования, ИИ, оптимизации, сборки и публикации игры. В книге 38 глав, сотни листингов, схемы и разборы известных игр.
 
-<a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="docs/litres-badge.svg" height="36" alt="Читать на ЛитРес"></a> <a href="https://app.lava.top/maksimboiko"><img src="docs/preorder-badge.svg" height="36" alt="Предзаказ бумажной книги"></a>
+<a href="https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/"><img src="docs/litres-badge.svg" height="36" alt="Читать на ЛитРес"></a> <a href="https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864"><img src="docs/preorder-badge.svg" height="36" alt="Предзаказ бумажной книги"></a>
 
 Электронная книга — [на ЛитРес](https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/).
 
-**Бумажная книга.** Сейчас собираем на печатное издание, цель 1 000 000 ₽. Можно оформить [предзаказ книги с автографом за 5 000 ₽](https://app.lava.top/maksimboiko) или просто поддержать сбор от 300 ₽ — за 1 000 ₽ ваше имя попадёт в благодарности. Если книга пригодилась и хочется увидеть её на бумаге — заходите.
+**Бумажная книга.** Сейчас собираем на печатное издание, цель 1 000 000 ₽. Можно оформить [предзаказ книги с автографом за 5 000 ₽](https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864) или просто поддержать сбор от 300 ₽ — за 1 000 ₽ ваше имя попадёт в благодарности. Если книга пригодилась и хочется увидеть её на бумаге — заходите.
 
 ## Об авторе
 
