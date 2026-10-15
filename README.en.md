@@ -65,6 +65,20 @@ Methods: `BuildWindows`, `BuildMac`, `BuildWeb`; output goes to the project's `B
 
 **Maksim Boiko. «Unity 6: от первой игры до публикации»** (Russian, 623 pages). A complete hands-on guide: the editor and C# from scratch, physics, URP graphics and shaders, animation (from Mecanim to procedural), design patterns, AI, saves, optimization, testing, builds and publishing to Steam, Google Play, RuStore and itch.io. Available as an e-book on [LitRes](https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/).
 
+**Paper edition.** We're raising money to print the book, the goal is 1,000,000 ₽. You can [preorder a signed copy for 5,000 ₽](https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864) or chip in from 300 ₽.
+
+## About the author
+
+**Maksim Boiko** is the founder of the game publisher Devilime, a game developer and entrepreneur. He organizes Russia-wide game development events and hackathons: the [Gameday](https://gameday73.ru/) festival and the [LimeGames Hack](https://limegames-hack.ru/) hackathon.
+
+Get in touch:
+
+- Telegram channel GameDev Ulyanovsk (in Russian) — [t.me/gamedev_ulsk](https://t.me/gamedev_ulsk);
+- Telegram — [t.me/krest_leveosso](https://t.me/krest_leveosso);
+- email — [maxkzboiko@gmail.com](mailto:maxkzboiko@gmail.com).
+
+Found a bug in the projects? Open an [issue](https://github.com/LivelyPuer/unity6-book-projects/issues).
+
 ## Licenses
 
 - **Code** — MIT (see [LICENSE](LICENSE)), free for any use, including commercial.

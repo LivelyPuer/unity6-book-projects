@@ -11,6 +11,8 @@
   <a href="https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864"><img src="docs/preorder-badge.svg" height="36" alt="Предзаказ бумажной книги"></a>
 </p>
 
+<p align="center">Автор — Максим Бойко · <a href="https://t.me/gamedev_ulsk">Telegram-канал</a> · <a href="https://t.me/krest_leveosso">Telegram</a> · <a href="mailto:maxkzboiko@gmail.com">почта</a></p>
+
 <p align="center"><b>Собираем на бумажную книгу</b> — цель 1 000 000 ₽. Книга с автографом — 5 000 ₽, поддержать сбор — от 300 ₽: <a href="https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864">app.lava.top/maksimboiko</a></p>
 
 | | Кристальный сборщик | Руины |
@@ -92,7 +94,15 @@ Unity -batchmode -quit -projectPath Ruins -executeMethod BuildScript.BuildWeb
 
 ## Об авторе
 
-**Максим Сергеевич Бойко** — основатель издательства игр Devilime, разработчик игр, предприниматель.
+**Максим Сергеевич Бойко** — основатель издательства игр Devilime, разработчик игр и предприниматель. Организатор всероссийских игровых ивентов и хакатонов по разработке игр — фестиваля [Gameday](https://gameday73.ru/) и хакатона [LimeGames Hack](https://limegames-hack.ru/).
+
+Нашли ошибку, застряли на каком-то шаге или доделали свою первую игру — пишите:
+
+- Telegram-канал GameDev Ulyanovsk — [t.me/gamedev_ulsk](https://t.me/gamedev_ulsk): новости, разборы, анонсы джемов и хакатонов;
+- мой Telegram — [t.me/krest_leveosso](https://t.me/krest_leveosso);
+- почта — [maxkzboiko@gmail.com](mailto:maxkzboiko@gmail.com).
+
+Ошибку в коде проектов можно сразу завести в [Issues](https://github.com/LivelyPuer/unity6-book-projects/issues).
 
 ## Лицензии
 
